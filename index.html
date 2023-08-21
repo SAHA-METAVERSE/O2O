@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GitHub Pages URL Parameters Example</title>
+</head>
+<body>
+  <h1 id="dynamic-text">Placeholder Text</h1>
+
+  <script>
+    // Get the query string part of the URL
+    var queryString = window.location.search;
+
+    // Create an object to store the extracted parameters
+    var params = {};
+
+    // Parse the query string and extract parameters
+    if (queryString) {
+      queryString = queryString.substring(1); // Remove the "?" at the beginning
+      var pairs = queryString.split("&");
+
+      for (var i = 0; i < pairs.length; i++) {
+        var pair = pairs[i].split("=");
+        var key = decodeURIComponent(pair[0]);
+        var value = decodeURIComponent(pair[1]);
+        params[key] = value;
+      }
+    }
+
+    // Use the extracted parameters to display dynamic content
+    var dynamicTextElement = document.getElementById("dynamic-text");
+    dynamicTextElement.textContent = "Hello, " + params.name + "! You are " + params.age + " years old.";
+  </script>
+</body>
+</html>

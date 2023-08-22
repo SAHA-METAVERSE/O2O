@@ -1,9 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>GitHub Pages URL Parameters Example</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Othentication 2 Objects</title>
+  
 </head>
 <body>
+  <div class= " Main ">
+  <div id="iframe">
+  <h2 id= "outputtext"></h2>
+  </div>
+    
+  </div>
   <h1 id="dynamic-text">Placeholder Text</h1>
 
   <script>
@@ -13,11 +22,18 @@
     // Create an object to store the extracted parameters
     var params = {};
 
+      var Contacts = queryString.split("=");
+      var Objects = decodeURIComponent(Contacts[0]);
+      var Id = Contacts.decodeURIComponent(Contacts[1]);
+       var textoutput = document.getElementById("outputtext");
+      textoutput.innerhtml = Id+" href #"+queryString;
+
     // Parse the query string and extract parameters
     if (queryString) {
       queryString = queryString.substring(1); // Remove the "?" at the beginning
+      
       var pairs = queryString.split("&");
-
+      
       for (var i = 0; i < pairs.length; i++) {
         var pair = pairs[i].split("=");
         var key = decodeURIComponent(pair[0]);
